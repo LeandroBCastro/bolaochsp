@@ -20,3 +20,22 @@ th {
   background: #222;
   color: white;
 }
+
+/* MENU */
+
+nav {
+  background: #222;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
