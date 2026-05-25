@@ -23,74 +23,13 @@
 
 <script>
  
-fetch('data/ranking.csv')
-  .then(response => response.text())
-  .then(text => {
+document.getElementById('podio').innerHTML =
+  '<h2>🏆 TESTE PODIO</h2>';
 
-    const linhas = text.trim().split('\n');
-
-    const ranking = [];
-
-    for (let i = 2; i < linhas.length; i++) {
-
-      const colunas = linhas[i].split(';');
-
-      ranking.push({
-        nome: colunas[0],
-        pontos: parseInt(colunas[1]) || 0
-      });
-    }
-
-    const top3 = ranking.slice(0, 3);
-
-    document.getElementById('podio').innerHTML = `
-      <div class="podio">
-
-        <div class="segundo">
-          🥈<br>
-          ${top3[1]?.nome || '-'}<br>
-          ${top3[1]?.pontos || 0} pts
-        </div>
-
-        <div class="primeiro">
-          🥇<br>
-          ${top3[0]?.nome || '-'}<br>
-          ${top3[0]?.pontos || 0} pts
-        </div>
-
-        <div class="terceiro">
-          🥉<br>
-          ${top3[2]?.nome || '-'}<br>
-          ${top3[2]?.pontos || 0} pts
-        </div>
-
-      </div>
-    `;
-
-    let html = '';
-
-    linhas.forEach((linha, i) => {
-
-      const colunas = linha.split(';');
-
-      html += '<tr>';
-
-      colunas.forEach(col => {
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
-      });
-
-      html += '</tr>';
-    });
-
-    document.getElementById('tabela').innerHTML = html;
-
-  });
-
+document.getElementById('tabela').innerHTML =
+  '<tr><td>TESTE TABELA</td></tr>';
 </script>
+
 
 </body>
 </html>
