@@ -22,14 +22,77 @@
 <table id="tabela"></table>
 
 <script>
- 
-document.getElementById('podio').innerHTML =
-  '<h2>🏆 TESTE PODIO</h2>';
+fetch('data/ranking.csv')
+  .then(response => response.text())
+  .then(text => {
 
-document.getElementById('tabela').innerHTML =
-  '<tr><td>TESTE TABELA</td></tr>';
+    const linhas = text.trim().split('\n');
+
+    const ranking = [];
+
+    for (let i = 2; i < linhas.length; i++) {
+
+      const colunas = linhas[i].split(';');
+
+      if (colunas.length < 2) continue;
+
+      ranking.push({
+        nome: colunas[0].trim(),
+        pontos: parseInt(colunas[1]) || 0
+      });
+    }
+
+    if (ranking.length >= 3) {
+
+      document.getElementById('podio').innerHTML = `
+        <div class="podio">
+
+          <div class="segundo">
+            🥈<br>
+            ${ranking[1].nome}<br>
+            ${ranking[1].pontos} pts
+          </div>
+
+          <div class="primeiro">
+            🥇<br>
+            ${ranking[0].nome}<br>
+            ${ranking[0].pontos} pts
+          </div>
+
+          <div class="terceiro">
+            🥉<br>
+            ${ranking[2].nome}<br>
+            ${ranking[2].pontos} pts
+          </div>
+
+        </div>
+      `;
+    }
+
+    let html = '';
+
+    linhas.forEach((linha, i) => {
+
+      if (i === 0) return;
+
+      const colunas = linha.split(';');
+
+      html += '<tr>';
+
+      colunas.forEach(col => {
+
+        if (i === 1) {
+          html += `<th>${col}</th>`;
+        } else {
+          html += `<td>${col}</td>`;
+        }
+
+      });
+
+      html += '</tr>';
+    });
+
+    document.getElementById('tabela').innerHTML = html;
+
+  });
 </script>
-
-
-</body>
-</html>
