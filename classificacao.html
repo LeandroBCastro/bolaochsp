@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Ranking</title>
+<title>Classificação</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
   <a href="rodada1.html">1ª Rodada</a>
 </nav>
 
-<h1>Ranking</h1>
+<h1>Classificação dos Grupos</h1>
 
 <table id="tabela"></table>
 
@@ -23,26 +23,69 @@
 fetch('data/classificacao.csv')
   .then(response => response.text())
   .then(text => {
-    const linhas = text.trim().split('\n');
-    let html = '';
 
-    linhas.forEach((linha, i) => {
+    const linhas = text.trim().split('\n');
+
+    let html = '<div class="grupos">';
+
+    let grupoAberto = false;
+
+    linhas.forEach(linha => {
+
       const colunas = linha.split(';');
 
-      html += '<tr>';
+      if (colunas[1] && colunas[1].includes('GRUPO')) {
 
-      colunas.forEach(col => {
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
+        if (grupoAberto) {
+          html += `
+              </tbody>
+            </table>
+          </div>
+          `;
         }
-      });
 
-      html += '</tr>';
+        html += `
+          <div class="grupo-card">
+            <h2>${colunas[1]}</h2>
+
+            <table class="grupo-tabela">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Seleção</th>
+                  <th>P</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+
+        grupoAberto = true;
+
+      } else if (
+        colunas[0] &&
+        colunas[0].includes('º')
+      ) {
+
+        html += `
+          <tr>
+            <td>${colunas[0]}</td>
+            <td>${colunas[1]}</td>
+            <td>${colunas[2]}</td>
+          </tr>
+        `;
+      }
+
     });
 
+    html += `
+          </tbody>
+        </table>
+      </div>
+    </div>
+    `;
+
     document.getElementById('tabela').innerHTML = html;
+
   });
 </script>
 
