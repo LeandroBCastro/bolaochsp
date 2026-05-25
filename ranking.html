@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Ranking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<nav>
+  <a href="index.html">Início</a>
+  <a href="ranking.html">Ranking</a>
+  <a href="classificacao.html">Classificação</a>
+  <a href="palpites.html">Palpites</a>
+  <a href="rodada1.html">1ª Rodada</a>
+</nav>
+
+<h1>Ranking</h1>
+
+<table id="tabela"></table>
+
+<script>
+fetch('data/ranking.csv')
+  .then(response => response.text())
+  .then(text => {
+    const linhas = text.trim().split('\n');
+    let html = '';
+
+    linhas.forEach((linha, i) => {
+      const colunas = linha.split(';');
+
+      html += '<tr>';
+
+      colunas.forEach(col => {
+        if (i === 1) {
+          html += `<th>${col}</th>`;
+        } else {
+          html += `<td>${col}</td>`;
+        }
+      });
+
+      html += '</tr>';
+    });
+
+    document.getElementById('tabela').innerHTML = html;
+  });
+</script>
+
+</body>
+</html>
