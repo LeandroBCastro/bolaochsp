@@ -1,8 +1,9 @@
+<script>
 fetch('data/ranking.csv')
   .then(response => response.text())
   .then(text => {
 
-    const linhas = text.trim().split("\n");
+    const linhas = text.trim().split('\n');
 
     const ranking = [];
 
@@ -17,8 +18,6 @@ fetch('data/ranking.csv')
         pontos: Number(colunas[1])
       });
     });
-
-    // PÓDIO
 
     const top3 = ranking
       .sort((a, b) => b.pontos - a.pontos)
@@ -48,25 +47,26 @@ fetch('data/ranking.csv')
       </div>
     `;
 
-    // TABELA
-
-    let html = "";
+    let html = '';
 
     linhas.forEach((linha, i) => {
-      const colunas = linha.split(";");
 
-      html += "<tr>";
+      const colunas = linha.split(';');
+
+      html += '<tr>';
 
       colunas.forEach(col => {
-        if (i === 0) {
+        if (i === 1) {
           html += `<th>${col}</th>`;
         } else {
           html += `<td>${col}</td>`;
         }
       });
 
-      html += "</tr>";
+      html += '</tr>';
     });
 
-    document.getElementById("tabela").innerHTML = html;
+    document.getElementById('tabela').innerHTML = html;
+
   });
+</script>
