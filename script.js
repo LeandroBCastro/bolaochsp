@@ -5,7 +5,7 @@ fetch('data/ranking.csv')
     let html = "";
 
     linhas.forEach((linha, i) => {
-      const colunas = linha.split(",");
+      const colunas = linha.split(";");
 
       html += "<tr>";
 
