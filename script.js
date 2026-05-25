@@ -6,7 +6,7 @@ fetch('data/ranking.csv')
     const linhas = text.trim().split('\n');
 
     const ranking = [];
-
+      console.log(linhas);
     linhas.forEach((linha, i) => {
 
       if (i < 2) return;
