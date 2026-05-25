@@ -144,3 +144,52 @@ tr:nth-child(5) {
   background: #fef3c7 !important;
   font-weight: bold;
 }
+.grupos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.grupo-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  width: 300px;
+}
+
+.grupo-card h2 {
+  margin-top: 0;
+  text-align: center;
+  background: #1f2937;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.grupo-tabela {
+  width: 100%;
+  min-width: auto;
+  margin: 0;
+}
+
+.grupo-tabela th,
+.grupo-tabela td {
+  text-align: center;
+}
+
+.grupo-tabela td:nth-child(2) {
+  text-align: left;
+  font-size: 14px;
+  color: #111827;
+}
+
+.grupo-tabela tr:nth-child(1) td {
+  background: #dcfce7;
+  font-weight: bold;
+}
+
+.grupo-tabela tr:nth-child(2) td {
+  background: #ecfccb;
+}
