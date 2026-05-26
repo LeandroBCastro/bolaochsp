@@ -230,6 +230,8 @@ tr:hover {
 
 /* RODADA */
 
+/* RODADA */
+
 #jogos {
   display: flex;
   flex-wrap: wrap;
@@ -239,27 +241,42 @@ tr:hover {
 
 .jogo-card {
   background: white;
-  width: 380px;
+  width: 420px;
   border-radius: 12px;
   padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 .jogo-info {
   text-align: center;
-  font-weight: bold;
-  color: #475569;
-  margin-bottom: 12px;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .jogo-times {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  font-weight: bold;
 }
 
-.versus {
-  font-size: 22px;
+.time-casa,
+.time-fora {
+  width: 40%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.time-casa {
+  text-align: right;
+}
+
+.time-fora {
+  text-align: left;
+}
+
+.placar {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
 }
