@@ -19,12 +19,17 @@
 
 <div id="jogos"></div>
 
-  <script>
+<script>
 fetch('data/rodada1.csv')
   .then(response => response.text())
   .then(text => {
 
     const linhas = text.trim().split('\n');
+
+    const hoje = new Date();
+    const diaHoje = String(hoje.getDate()).padStart(2, '0');
+    const mesHoje = String(hoje.getMonth() + 1).padStart(2, '0');
+    const dataHoje = `${diaHoje}/${mesHoje}`;
 
     let html = '';
 
@@ -33,21 +38,22 @@ fetch('data/rodada1.csv')
       if (i < 2) return;
 
       const c = linha.split(';');
-      
+
       if (c.length < 9) return;
 
-if (
-  c[0].trim() === '' &&
-  c[2].trim() === '' &&
-  c[8].trim() === ''
-) return;
+      if (
+        c[0].trim() === '' &&
+        c[2].trim() === '' &&
+        c[8].trim() === ''
+      ) return;
 
-      const data = c[0];
-      const hora = c[1];
-      const time1 = c[2];
-      const gols1 = c[4];
-      const gols2 = c[6];
-      const time2 = c[8];
+      const data = c[0].trim();
+      const hora = c[1].trim();
+      const time1 = c[2].trim();
+      const gols1 = c[4].trim();
+      const gols2 = c[6].trim();
+      const time2 = c[8].trim();
+
       const numeroJogo = i - 1;
 
       let placar = 'x';
@@ -56,11 +62,16 @@ if (
         placar = `${gols1} x ${gols2}`;
       }
 
+      const classeHoje =
+        data === dataHoje
+          ? 'jogo-hoje'
+          : '';
+
       html += `
-        <div class="jogo-card">
+        <div class="jogo-card ${classeHoje}">
 
           <div class="jogo-info">
-⚽ Jogo ${numeroJogo} • 📅 ${data} • 🕓 ${hora}
+            ⚽ Jogo ${numeroJogo} • 📅 ${data} • 🕓 ${hora}
           </div>
 
           <div class="jogo-times">
@@ -84,6 +95,7 @@ if (
     });
 
     document.getElementById('jogos').innerHTML = html;
+
   });
 </script>
 
