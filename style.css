@@ -74,7 +74,6 @@ nav a:hover {
 table {
   border-collapse: collapse;
   background: white;
-  min-width: 700px;
   margin: auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
@@ -204,19 +203,22 @@ tr:nth-child(5) {
 
 /* CLASSIFICAÇÃO */
 
+/* CLASSIFICAÇÃO */
+
 #classificacao {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 .grupo-card {
   background: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  overflow-x: auto;
+  width: 48%;
+  box-sizing: border-box;
 }
 
 .grupo-titulo {
@@ -230,25 +232,28 @@ tr:nth-child(5) {
 }
 
 .grupo-tabela {
-  min-width: 650px;
   width: 100%;
+  min-width: auto;
 }
 
-.grupo-tabela th {
-  text-align: center;
-}
-
+.grupo-tabela th,
 .grupo-tabela td {
+  padding: 4px 6px;
+  font-size: 12px;
   text-align: center;
 }
 
 .grupo-tabela td:nth-child(2) {
   text-align: left;
   font-weight: bold;
+  color: #111827;
+  font-size: 13px;
 }
+
+/* Destacar classificados */
 
 .grupo-tabela tbody tr:nth-child(1),
 .grupo-tabela tbody tr:nth-child(2) {
-  border-left: 6px solid #22c55e;
+  background: #dcfce7;
   font-weight: bold;
 }
