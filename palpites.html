@@ -15,34 +15,75 @@
   <a href="rodada1.html">1ª Rodada</a>
 </nav>
 
-<h1>Ranking</h1>
+<h1>Palpites</h1>
 
-<table id="tabela"></table>
+<div id="palpites"></div>
 
 <script>
 fetch('data/palpites.csv')
   .then(response => response.text())
   .then(text => {
+
     const linhas = text.trim().split('\n');
-    let html = '';
 
-    linhas.forEach((linha, i) => {
-      const colunas = linha.split(';');
+    const cabecalho = linhas[0].split(';');
 
-      html += '<tr>';
+    const data = cabecalho[0];
 
-      colunas.forEach(col => {
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
-      });
+    const jogos = [];
 
-      html += '</tr>';
+    for (let i = 1; i < cabecalho.length; i++) {
+
+      if (cabecalho[i].trim() !== '') {
+        jogos.push({
+          nome: cabecalho[i],
+          coluna: i
+        });
+      }
+    }
+
+    let html = `
+      <h2 style="text-align:center;">
+        📅 Palpites do dia - ${data}
+      </h2>
+
+      <table id="tabela-palpites">
+        <tr>
+          <th>Jogador</th>
+    `;
+
+    jogos.forEach(jogo => {
+      html += `<th>${jogo.nome}</th>`;
     });
 
-    document.getElementById('tabela').innerHTML = html;
+    html += '</tr>';
+
+    for (let i = 2; i < linhas.length; i++) {
+
+      const c = linhas[i].split(';');
+
+      if (!c[0].trim()) continue;
+
+      html += `<tr>`;
+
+      html += `<td><strong>${c[0]}</strong></td>`;
+
+      jogos.forEach(jogo => {
+
+        html += `
+          <td>
+            ${c[jogo.coluna] || ''}
+          </td>
+        `;
+      });
+
+      html += `</tr>`;
+    }
+
+    html += '</table>';
+
+    document.getElementById('palpites').innerHTML = html;
+
   });
 </script>
 
