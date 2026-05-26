@@ -17,7 +17,7 @@
 
 <h1>Classificação dos Grupos</h1>
 
-<table id="tabela"></table>
+<div id="classificacao"></div>
 
 <script>
 fetch('data/classificacao.csv')
@@ -26,14 +26,14 @@ fetch('data/classificacao.csv')
 
     const linhas = text.trim().split('\n');
 
-    let html = '<div class="grupos">';
-
+    let html = '';
     let grupoAberto = false;
 
     linhas.forEach(linha => {
 
       const colunas = linha.split(';');
 
+      // Início de um grupo
       if (colunas[1] && colunas[1].includes('GRUPO')) {
 
         if (grupoAberto) {
@@ -46,31 +46,44 @@ fetch('data/classificacao.csv')
 
         html += `
           <div class="grupo-card">
-            <h2>${colunas[1]}</h2>
+            <div class="grupo-titulo">${colunas[1]}</div>
 
             <table class="grupo-tabela">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>Pos</th>
                   <th>Seleção</th>
                   <th>P</th>
+                  <th>J</th>
+                  <th>V</th>
+                  <th>E</th>
+                  <th>D</th>
+                  <th>SG</th>
+                  <th>GP</th>
+                  <th>GC</th>
                 </tr>
               </thead>
               <tbody>
         `;
 
         grupoAberto = true;
+      }
 
-      } else if (
-        colunas[0] &&
-        colunas[0].includes('º')
-      ) {
+      // Linhas das seleções
+      else if (colunas[0] && colunas[0].includes('º')) {
 
         html += `
           <tr>
             <td>${colunas[0]}</td>
             <td>${colunas[1]}</td>
             <td>${colunas[2]}</td>
+            <td>${colunas[3]}</td>
+            <td>${colunas[4]}</td>
+            <td>${colunas[5]}</td>
+            <td>${colunas[6]}</td>
+            <td>${colunas[7]}</td>
+            <td>${colunas[8]}</td>
+            <td>${colunas[9]}</td>
           </tr>
         `;
       }
@@ -81,11 +94,9 @@ fetch('data/classificacao.csv')
           </tbody>
         </table>
       </div>
-    </div>
     `;
 
-    document.getElementById('tabela').innerHTML = html;
-
+    document.getElementById('classificacao').innerHTML = html;
   });
 </script>
 
