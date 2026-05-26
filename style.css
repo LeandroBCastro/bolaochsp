@@ -289,4 +289,29 @@ tr:hover {
   color: #b45309;
   font-weight: bold;
 }
+#tabela-palpites {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+#tabela-palpites th {
+  background: #1f2937;
+  color: white;
+  padding: 12px;
+}
+
+#tabela-palpites td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#tabela-palpites tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+#tabela-palpites td:first-child {
+  font-weight: bold;
+}
 
