@@ -156,7 +156,8 @@ tr:nth-child(5) {
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  width: 300px;
+  overflow-x: auto;
+  width: 45%;
 }
 
 .grupo-card h2 {
@@ -239,20 +240,8 @@ tr:nth-child(5) {
   font-weight: bold;
 }
 
-/* Classificados */
-
-.grupo-tabela tbody tr:nth-child(1) {
-  background: #dcfce7;
-  font-weight: bold;
-}
-
+.grupo-tabela tbody tr:nth-child(1),
 .grupo-tabela tbody tr:nth-child(2) {
-  background: #ecfccb;
-}
-
-/* Eliminados */
-
-.grupo-tabela tbody tr:nth-child(3),
-.grupo-tabela tbody tr:nth-child(4) {
-  background: #fafafa;
+  border-left: 6px solid #22c55e;
+  font-weight: bold;
 }
