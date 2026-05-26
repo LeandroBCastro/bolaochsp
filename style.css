@@ -241,8 +241,7 @@ td:nth-child(4) {
 
 /* Destacar classificados */
 
-.grupo-tabela tbody tr:nth-child(1),
-.grupo-tabela tbody tr:nth-child(2) {
-  background: #dcfce7;
-  font-weight: bold;
+.grupo-tabela tbody tr:nth-child(1) td:first-child::before,
+.grupo-tabela tbody tr:nth-child(2) td:first-child::before {
+  content: "🟢 ";
 }
