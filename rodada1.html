@@ -25,28 +25,41 @@ fetch('data/rodada1.csv')
   .then(text => {
 
     const linhas = text.trim().split('\n');
-
     let html = '';
 
     linhas.forEach((linha, i) => {
 
       if (i === 0) return;
 
-      const colunas = linha.split(';');
+      const c = linha.split(';');
+
+      const data = c[0];
+      const hora = c[1];
+      const mandante = c[2];
+      const gm = c[3];
+      const gv = c[4];
+      const visitante = c[5];
+
+      const placar =
+        gm !== '' && gv !== ''
+          ? `${gm} x ${gv}`
+          : 'x';
 
       html += `
         <div class="jogo-card">
 
           <div class="jogo-info">
-            📅 ${colunas[0]} &nbsp;&nbsp; 🕓 ${colunas[1]}
+            📅 ${data} • 🕓 ${hora}
           </div>
 
           <div class="jogo-times">
-            <span>${colunas[2]}</span>
+            <span>${mandante}</span>
 
-            <span class="versus">⚽</span>
+            <span class="placar">
+              ${placar}
+            </span>
 
-            <span>${colunas[6]}</span>
+            <span>${visitante}</span>
           </div>
 
         </div>
