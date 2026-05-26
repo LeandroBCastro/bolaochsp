@@ -227,3 +227,39 @@ tr:hover {
 .grupo-tabela tbody tr:nth-child(2) td:first-child::before {
   content: "🟢 ";
 }
+
+/* RODADA */
+
+#jogos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.jogo-card {
+  background: white;
+  width: 380px;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.jogo-info {
+  text-align: center;
+  font-weight: bold;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.jogo-times {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.versus {
+  font-size: 22px;
+}
