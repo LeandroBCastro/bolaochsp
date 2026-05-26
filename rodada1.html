@@ -19,8 +19,7 @@
 
 <div id="jogos"></div>
 
-<script>
-<script>
+  <script>
 fetch('data/rodada1.csv')
   .then(response => response.text())
   .then(text => {
@@ -38,18 +37,13 @@ fetch('data/rodada1.csv')
       const data = c[0];
       const hora = c[1];
       const time1 = c[2];
-
       const gols1 = c[4];
       const gols2 = c[6];
-
       const time2 = c[8];
 
       let placar = 'x';
 
-      if (
-        gols1 !== '' &&
-        gols2 !== ''
-      ) {
+      if (gols1 !== '' && gols2 !== '') {
         placar = `${gols1} x ${gols2}`;
       }
 
@@ -81,9 +75,7 @@ fetch('data/rodada1.csv')
     });
 
     document.getElementById('jogos').innerHTML = html;
-
   });
-</script>
 </script>
 
 </body>
