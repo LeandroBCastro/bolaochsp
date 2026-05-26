@@ -129,17 +129,17 @@ td:nth-child(4) {
 
 /* Top 3 */
 
-tr:nth-child(3) {
+#tabela tr:nth-child(3) {
   background: #fff8dc !important;
   font-weight: bold;
 }
 
-tr:nth-child(4) {
+#tabela tr:nth-child(4) {
   background: #f1f5f9 !important;
   font-weight: bold;
 }
 
-tr:nth-child(5) {
+#tabela tr:nth-child(5) {
   background: #fef3c7 !important;
   font-weight: bold;
 }
