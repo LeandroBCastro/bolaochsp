@@ -95,7 +95,7 @@ th {
 
 /* Linhas alternadas */
 
-tr:nth-child(even) {
+#tabela tr:nth-child(even) {
   background: #f8fafc;
 }
 
@@ -191,17 +191,6 @@ td:nth-child(4) {
   font-size: 14px;
   color: #111827;
 }
-
-.grupo-tabela tr:nth-child(1) td {
-  background: #dcfce7;
-  font-weight: bold;
-}
-
-.grupo-tabela tr:nth-child(2) td {
-  background: #ecfccb;
-}
-
-/* CLASSIFICAÇÃO */
 
 /* CLASSIFICAÇÃO */
 
