@@ -154,10 +154,10 @@ tr:nth-child(5) {
 .grupo-card {
   background: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  overflow-x: auto;
-  width: 45%;
+  width: 48%;
+  box-sizing: border-box;
 }
 
 .grupo-card h2 {
@@ -172,9 +172,16 @@ tr:nth-child(5) {
 .grupo-tabela {
   width: 100%;
   min-width: auto;
-  margin: 0;
+}
+.grupo-tabela th,
+.grupo-tabela td {
+  padding: 5px 6px;
+  font-size: 13px;
 }
 
+.grupo-tabela td:nth-child(2) {
+  min-width: 140px;
+}
 .grupo-tabela th,
 .grupo-tabela td {
   text-align: center;
