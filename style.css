@@ -280,3 +280,13 @@ tr:hover {
   font-weight: bold;
   color: #1f2937;
 }
+.jogo-hoje {
+  border: 3px solid #fbbf24;
+  box-shadow: 0 0 18px rgba(251,191,36,.5);
+}
+
+.jogo-hoje .jogo-info {
+  color: #b45309;
+  font-weight: bold;
+}
+
