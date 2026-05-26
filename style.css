@@ -193,3 +193,66 @@ tr:nth-child(5) {
 .grupo-tabela tr:nth-child(2) td {
   background: #ecfccb;
 }
+
+/* CLASSIFICAÇÃO */
+
+#classificacao {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.grupo-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  overflow-x: auto;
+}
+
+.grupo-titulo {
+  background: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.grupo-tabela {
+  min-width: 650px;
+  width: 100%;
+}
+
+.grupo-tabela th {
+  text-align: center;
+}
+
+.grupo-tabela td {
+  text-align: center;
+}
+
+.grupo-tabela td:nth-child(2) {
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Classificados */
+
+.grupo-tabela tbody tr:nth-child(1) {
+  background: #dcfce7;
+  font-weight: bold;
+}
+
+.grupo-tabela tbody tr:nth-child(2) {
+  background: #ecfccb;
+}
+
+/* Eliminados */
+
+.grupo-tabela tbody tr:nth-child(3),
+.grupo-tabela tbody tr:nth-child(4) {
+  background: #fafafa;
+}
