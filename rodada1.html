@@ -20,11 +20,13 @@
 <div id="jogos"></div>
 
 <script>
+<script>
 fetch('data/rodada1.csv')
   .then(response => response.text())
   .then(text => {
 
     const linhas = text.trim().split('\n');
+
     let html = '';
 
     linhas.forEach((linha, i) => {
@@ -35,15 +37,21 @@ fetch('data/rodada1.csv')
 
       const data = c[0];
       const hora = c[1];
-      const mandante = c[2];
-      const gm = c[3];
-      const gv = c[4];
-      const visitante = c[5];
+      const time1 = c[2];
 
-      const placar =
-        gm !== '' && gv !== ''
-          ? `${gm} x ${gv}`
-          : 'x';
+      const gols1 = c[4];
+      const gols2 = c[6];
+
+      const time2 = c[8];
+
+      let placar = 'x';
+
+      if (
+        gols1 !== '' &&
+        gols2 !== ''
+      ) {
+        placar = `${gols1} x ${gols2}`;
+      }
 
       html += `
         <div class="jogo-card">
@@ -53,13 +61,19 @@ fetch('data/rodada1.csv')
           </div>
 
           <div class="jogo-times">
-            <span>${mandante}</span>
+
+            <span class="time-casa">
+              ${time1}
+            </span>
 
             <span class="placar">
               ${placar}
             </span>
 
-            <span>${visitante}</span>
+            <span class="time-fora">
+              ${time2}
+            </span>
+
           </div>
 
         </div>
@@ -67,7 +81,9 @@ fetch('data/rodada1.csv')
     });
 
     document.getElementById('jogos').innerHTML = html;
+
   });
+</script>
 </script>
 
 </body>
