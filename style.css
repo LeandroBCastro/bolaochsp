@@ -180,7 +180,7 @@ tr:nth-child(5) {
 }
 
 .grupo-tabela td:nth-child(2) {
-  min-width: 140px;
+  min-width: 120px;
 }
 .grupo-tabela th,
 .grupo-tabela td {
