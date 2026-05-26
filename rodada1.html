@@ -33,6 +33,13 @@ fetch('data/rodada1.csv')
       if (i === 0) return;
 
       const c = linha.split(';');
+      if (c.length < 9) return;
+
+if (
+  c[0].trim() === '' &&
+  c[2].trim() === '' &&
+  c[8].trim() === ''
+) return;
 
       const data = c[0];
       const hora = c[1];
