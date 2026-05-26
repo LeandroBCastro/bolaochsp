@@ -315,3 +315,58 @@ tr:hover {
   font-weight: bold;
 }
 
+/* HOME */
+
+.home-logo {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.home-logo img {
+  max-width: 250px;
+}
+
+.intro-card {
+  background: white;
+  padding: 25px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 1000px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.intro-card p {
+  line-height: 1.7;
+  text-align: center;
+}
+
+.regras-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.regra-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 450px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.regra-card h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.regra-card table {
+  width: 100%;
+  min-width: auto;
+}
+
+.regra-card td:nth-child(2) {
+  text-align: center;
+  font-weight: bold;
+  color: #2563eb;
+}
