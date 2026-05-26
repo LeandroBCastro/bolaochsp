@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Ranking</title>
+<title>1ª Rodada</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,34 +15,45 @@
   <a href="rodada1.html">1ª Rodada</a>
 </nav>
 
-<h1>Ranking</h1>
+<h1>1ª Rodada</h1>
 
-<table id="tabela"></table>
+<div id="jogos"></div>
 
 <script>
 fetch('data/rodada1.csv')
   .then(response => response.text())
   .then(text => {
+
     const linhas = text.trim().split('\n');
+
     let html = '';
 
     linhas.forEach((linha, i) => {
+
+      if (i === 0) return;
+
       const colunas = linha.split(';');
 
-      html += '<tr>';
+      html += `
+        <div class="jogo-card">
 
-      colunas.forEach(col => {
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
-      });
+          <div class="jogo-info">
+            📅 ${colunas[0]} &nbsp;&nbsp; 🕓 ${colunas[1]}
+          </div>
 
-      html += '</tr>';
+          <div class="jogo-times">
+            <span>${colunas[2]}</span>
+
+            <span class="versus">⚽</span>
+
+            <span>${colunas[6]}</span>
+          </div>
+
+        </div>
+      `;
     });
 
-    document.getElementById('tabela').innerHTML = html;
+    document.getElementById('jogos').innerHTML = html;
   });
 </script>
 
