@@ -88,11 +88,11 @@ fetch('data/oitavas.csv')
         </div>
       `;
 
-      if (contador <= 8) {
-        esquerda += jogoHTML;
-      } else {
-        direita += jogoHTML;
-      }
+      if (contador <= 4) {
+  esquerda += jogoHTML;
+} else if (contador <= 8) {
+  direita += jogoHTML;
+}
 
     });
 
