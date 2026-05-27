@@ -393,48 +393,63 @@ tr:hover {
 
 .chaveamento {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
-  max-width: 700px;
-  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 30px;
 }
 
-.partida {
+.lado {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 320px;
+}
+
+.partida-chave {
   background: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
-  border-left: 6px solid #2563eb;
 }
 
 .partida-info {
   text-align: center;
+  font-size: 13px;
   color: #64748b;
-  font-size: 14px;
-  margin-bottom: 12px;
-  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.time {
+.linha-time {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 5px 0;
   background: #f8fafc;
-  margin-bottom: 8px;
-  font-size: 16px;
+  border-radius: 8px;
   font-weight: bold;
 }
 
-.time strong {
+.linha-time strong {
   font-size: 20px;
   color: #1f2937;
 }
 
-.placar-central {
+.proxima-fase {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 80px;
+  margin-top: 80px;
+}
+
+.fase-box {
+  background: #1f2937;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
   text-align: center;
-  font-size: 13px;
-  color: #64748b;
-  margin-top: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
