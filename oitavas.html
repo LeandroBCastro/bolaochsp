@@ -19,7 +19,7 @@
 
 <h1>🏆 Oitavas de Final</h1>
 
-<div id="jogos"></div>
+<div id="chaveamento" class="chaveamento"></div>
 
 <script>
 fetch('data/oitavas.csv')
@@ -27,11 +27,6 @@ fetch('data/oitavas.csv')
   .then(text => {
 
     const linhas = text.trim().split('\n');
-
-    const hoje = new Date();
-    const diaHoje = String(hoje.getDate()).padStart(2, '0');
-    const mesHoje = String(hoje.getMonth() + 1).padStart(2, '0');
-    const dataHoje = `${diaHoje}/${mesHoje}`;
 
     let html = '';
 
@@ -56,50 +51,21 @@ fetch('data/oitavas.csv')
       const gols2 = c[6].trim();
       const time2 = c[8].trim();
 
-      const numeroJogo = i - 1;
-
       let placar = 'x';
 
       if (gols1 !== '' && gols2 !== '') {
         placar = `${gols1} x ${gols2}`;
       }
 
-      const classeHoje =
-        data === dataHoje
-          ? 'jogo-hoje'
-          : '';
-
       html += `
-        <div class="jogo-card ${classeHoje}">
 
-          <div class="jogo-info">
-            ⚽ Oitavas • Jogo ${numeroJogo} • 📅 ${data} • 🕓 ${hora}
+        <div class="partida">
+
+          <div class="partida-info">
+            📅 ${data} • 🕓 ${hora}
           </div>
 
-          <div class="jogo-times">
-
-            <span class="time-casa">
-              ${time1}
-            </span>
-
-            <span class="placar">
-              ${placar}
-            </span>
-
-            <span class="time-fora">
-              ${time2}
-            </span>
-
-          </div>
-
-        </div>
-      `;
-    });
-
-    document.getElementById('jogos').innerHTML = html;
-
-  });
-</script>
-
-</body>
+          <div class="time">
+            <span>${time1}</span>
+            <strong>${gols1}</strong>
 </html>
