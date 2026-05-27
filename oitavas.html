@@ -19,7 +19,19 @@
 
 <h1>🏆 Oitavas de Final</h1>
 
-<div id="chaveamento" class="chaveamento"></div>
+<div class="chaveamento">
+
+  <div id="lado-esquerdo" class="lado"></div>
+
+  <div class="proxima-fase">
+    <div class="fase-box">Quartas</div>
+    <div class="fase-box">Semifinal</div>
+    <div class="fase-box">Final</div>
+  </div>
+
+  <div id="lado-direito" class="lado"></div>
+
+</div>
 
 <script>
 fetch('data/oitavas.csv')
@@ -28,7 +40,10 @@ fetch('data/oitavas.csv')
 
     const linhas = text.trim().split('\n');
 
-    let html = '';
+    let esquerda = '';
+    let direita = '';
+
+    let contador = 0;
 
     linhas.forEach((linha, i) => {
 
@@ -44,45 +59,51 @@ fetch('data/oitavas.csv')
         c[8].trim() === ''
       ) return;
 
+      contador++;
+
       const data = c[0].trim();
       const hora = c[1].trim();
+
       const time1 = c[2].trim();
       const gols1 = c[4].trim();
+
       const gols2 = c[6].trim();
       const time2 = c[8].trim();
 
-      let placar = 'x';
+      let placar1 = gols1 || '-';
+      let placar2 = gols2 || '-';
 
-      if (gols1 !== '' && gols2 !== '') {
-        placar = `${gols1} x ${gols2}`;
-      }
+      const jogoHTML = `
 
-      html += `
-        <div class="partida">
+        <div class="partida-chave">
 
           <div class="partida-info">
-            📅 ${data} • 🕓 ${hora}
+            ⚽ Jogo ${contador} • 📅 ${data} • 🕓 ${hora}
           </div>
 
-          <div class="time">
+          <div class="linha-time">
             <span>${time1}</span>
-            <strong>${gols1}</strong>
+            <strong>${placar1}</strong>
           </div>
 
-          <div class="time">
+          <div class="linha-time">
             <span>${time2}</span>
-            <strong>${gols2}</strong>
-          </div>
-
-          <div class="placar-central">
-            ${placar}
+            <strong>${placar2}</strong>
           </div>
 
         </div>
       `;
+
+      if (contador <= 8) {
+        esquerda += jogoHTML;
+      } else {
+        direita += jogoHTML;
+      }
+
     });
 
-    document.getElementById('chaveamento').innerHTML = html;
+    document.getElementById('lado-esquerdo').innerHTML = esquerda;
+    document.getElementById('lado-direito').innerHTML = direita;
 
   });
 </script>
