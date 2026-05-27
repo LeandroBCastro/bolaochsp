@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>2ª Rodada</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="ranking.html">Ranking</a>
+  <a href="classificacao.html">Classificação</a>
+  <a href="palpites.html">Palpites</a>
+  <a href="rodada1.html">1ª Rodada</a>
+  <a href="rodada2.html">2ª Rodada</a>
+</nav>
+
+<h1>2ª Rodada</h1>
+
+<div id="jogos"></div>
+
+<script>
+fetch('data/rodada2.csv')
+  .then(response => response.text())
+  .then(text => {
+
+    const linhas = text.trim().split('\n');
+
+    const hoje = new Date();
+    const diaHoje = String(hoje.getDate()).padStart(2, '0');
+    const mesHoje = String(hoje.getMonth() + 1).padStart(2, '0');
+    const dataHoje = `${diaHoje}/${mesHoje}`;
+
+    let html = '';
+
+    linhas.forEach((linha, i) => {
+
+      if (i < 2) return;
+
+      const c = linha.split(';');
+
+      if (c.length < 9) return;
+
+      if (
+        c[0].trim() === '' &&
+        c[2].trim() === '' &&
+        c[8].trim() === ''
+      ) return;
+
+      const data = c[0].trim();
+      const hora = c[1].trim();
+      const time1 = c[2].trim();
+      const gols1 = c[4].trim();
+      const gols2 = c[6].trim();
+      const time2 = c[8].trim();
+
+      const numeroJogo = i - 1;
+
+      let placar = 'x';
+
+      if (gols1 !== '' && gols2 !== '') {
+        placar = `${gols1} x ${gols2}`;
+      }
+
+      const classeHoje =
+        data === dataHoje
+          ? 'jogo-hoje'
+          : '';
+
+      html += `
+        <div class="jogo-card ${classeHoje}">
+
+          <div class="jogo-info">
+            ⚽ Jogo ${numeroJogo} • 📅 ${data} • 🕓 ${hora}
+          </div>
+
+          <div class="jogo-times">
+
+            <span class="time-casa">
+              ${time1}
+            </span>
+
+            <span class="placar">
+              ${placar}
+            </span>
+
+            <span class="time-fora">
+              ${time2}
+            </span>
+
+          </div>
+
+        </div>
+      `;
+    });
+
+    document.getElementById('jogos').innerHTML = html;
+
+  });
+</script>
+
+</body>
+</html>
