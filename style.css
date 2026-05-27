@@ -395,7 +395,7 @@ tr:hover {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
+  gap: 60px;
   margin-top: 30px;
 }
 
@@ -434,22 +434,4 @@ tr:hover {
 .linha-time strong {
   font-size: 20px;
   color: #1f2937;
-}
-
-.proxima-fase {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 80px;
-  margin-top: 80px;
-}
-
-.fase-box {
-  background: #1f2937;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
