@@ -58,7 +58,6 @@ fetch('data/oitavas.csv')
       }
 
       html += `
-
         <div class="partida">
 
           <div class="partida-info">
@@ -68,4 +67,25 @@ fetch('data/oitavas.csv')
           <div class="time">
             <span>${time1}</span>
             <strong>${gols1}</strong>
+          </div>
+
+          <div class="time">
+            <span>${time2}</span>
+            <strong>${gols2}</strong>
+          </div>
+
+          <div class="placar-central">
+            ${placar}
+          </div>
+
+        </div>
+      `;
+    });
+
+    document.getElementById('chaveamento').innerHTML = html;
+
+  });
+</script>
+
+</body>
 </html>
