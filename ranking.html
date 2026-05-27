@@ -80,15 +80,17 @@ fetch('data/ranking.csv')
 
       html += '<tr>';
 
-      colunas.forEach(col => {
+    colunas.forEach(col => {
 
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
+  if (col.trim() === '') return;
 
-      });
+  if (i === 1) {
+    html += `<th>${col}</th>`;
+  } else {
+    html += `<td>${col}</td>`;
+  }
+
+});
 
       html += '</tr>';
     });
