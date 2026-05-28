@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Final</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="ranking.html">Ranking</a>
+  <a href="classificacao.html">Classificação</a>
+  <a href="palpites.html">Palpites</a>
+  <a href="rodada1.html">1ª Rodada</a>
+  <a href="rodada2.html">2ª Rodada</a>
+  <a href="oitavas.html">Oitavas</a>
+  <a href="quartas.html">Quartas</a>
+  <a href="semifinal.html">Semifinal</a>
+  <a href="final.html">Final</a>
+</nav>
+
+<h1>🏆 Grande Final</h1>
+
+<div id="final-container"></div>
+
+<script>
+fetch('data/final.csv')
+  .then(response => response.text())
+  .then(text => {
+
+    const linhas = text.trim().split('\n');
+
+    let html = '';
+
+    let contador = 0;
+
+    linhas.forEach((linha, i) => {
+
+      if (i < 2) return;
+
+      const c = linha.split(';');
+
+      if (c.length < 9) return;
+
+      if (
+        c[0].trim() === '' &&
+        c[2].trim() === '' &&
+        c[8].trim() === ''
+      ) return;
+
+      contador++;
+
+      const data = c[0].trim();
+      const hora = c[1].trim();
+
+      const time1 = c[2].trim();
+      const gols1 = c[4].trim();
+
+      const gols2 = c[6].trim();
+      const time2 = c[8].trim();
+
+      let placar1 = gols1 || '-';
+      let placar2 = gols2 || '-';
+
+      let titulo = '';
+
+      if (contador === 1) {
+        titulo = '🥉 Disputa de 3º Lugar';
+      }
+
+      if (contador === 2) {
+        titulo = '🏆 Grande Final';
+      }
+
+      html += `
+
+        <div class="final-card">
+
+          <h2>${titulo}</h2>
+
+          <div class="partida-info">
+            📅 ${data} • 🕓 ${hora}
+          </div>
+
+          <div class="linha-time">
+            <span>${time1}</span>
+            <strong>${placar1}</strong>
+          </div>
+
+          <div class="linha-time">
+            <span>${time2}</span>
+            <strong>${placar2}</strong>
+          </div>
+
+        </div>
+      `;
+    });
+
+    document.getElementById('final-container').innerHTML = html;
+
+  });
+</script>
+
+</body>
+</html>
