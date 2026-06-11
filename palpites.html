@@ -67,20 +67,24 @@ fetch('data/palpites.csv')
 
       const c = linhas[i].split(';');
 
-      if (!c[0].trim()) continue;
+  if (!c[0].trim() || c[0].trim() === '0') continue;
 
       html += `<tr>`;
 
       html += `<td><strong>${c[0]}</strong></td>`;
 
-      jogos.forEach(jogo => {
+   jogos.forEach(jogo => {
 
-        html += `
-          <td>
-            ${c[jogo.coluna] || ''}
-          </td>
-        `;
-      });
+  const gol1 = c[jogo.coluna] || '';
+  const x = c[jogo.coluna + 1] || 'x';
+  const gol2 = c[jogo.coluna + 2] || '';
+
+  html += `
+    <td>
+      ${gol1} ${x} ${gol2}
+    </td>
+  `;
+});
 
       html += `</tr>`;
     }
