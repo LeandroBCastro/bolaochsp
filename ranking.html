@@ -1,1 +1,86 @@
-<!DOCTYPE html> <html lang="pt-br"> <head> <meta charset="UTF-8"> <title>Ranking</title> <link rel="stylesheet" href="style.css"> </head> <body> <nav> <a href="index.html">Início</a> <a href="ranking.html">Ranking</a> <a href="classificacao.html">Classificação</a> <a href="palpites.html">Palpites</a> <a href="rodada1.html">1ª Rodada</a> <a href="rodada2.html">2ª Rodada</a> <a href="oitavas.html">Oitavas</a> <a href="quartas.html">Quartas</a> <a href="semifinal.html">Semifinal</a> <a href="final.html">Final</a> </nav> <h1>Ranking</h1> <div id="podio"></div> <table id="tabela"></table> <script> fetch('data/ranking.csv') .then(response => response.text()) .then(text => { const linhas = text.trim().split('\n'); const ranking = []; for (let i = 2; i < linhas.length; i++) { const colunas = linhas[i].split(';'); if (colunas.length < 2) continue; const pontos = parseInt(colunas[1]) || 0; if (pontos > 0) { ranking.push({ nome: colunas[0].trim(), pontos: pontos }); } } if (ranking.length >= 3) { document.getElementById('podio').innerHTML = <div class="podio"> <div class="segundo"> 🥈<br> ${ranking[1].nome}<br> ${ranking[1].pontos} pts </div> <div class="primeiro"> 🥇<br> ${ranking[0].nome}<br> ${ranking[0].pontos} pts </div> <div class="terceiro"> 🥉<br> ${ranking[2].nome}<br> ${ranking[2].pontos} pts </div> </div> ; } let html = ''; linhas.forEach((linha, i) => { if (i === 0) return; const colunas = linha.split(';'); const pontos = parseInt(colunas[1]) || 0; if (i > 1 && pontos === 0) return; if (i === 0) return; const colunas = linha.split(';'); html += '<tr>'; colunas.forEach(col => { if (col.trim() === '') return; if (i === 1) { html += <th>${col}</th>; } else { html += <td>${col}</td>; } }); html += '</tr>'; }); document.getElementById('tabela').innerHTML = html; }); </script>
+<script>
+fetch('data/ranking.csv')
+  .then(response => response.text())
+  .then(text => {
+
+    const linhas = text.trim().split('\n');
+
+    const ranking = [];
+
+    for (let i = 2; i < linhas.length; i++) {
+
+      const colunas = linhas[i].split(';');
+
+      if (colunas.length < 2) continue;
+
+      const pontos = parseInt(colunas[1]) || 0;
+
+      ranking.push({
+        nome: colunas[0].trim(),
+        pontos: pontos
+      });
+    }
+
+    ranking.sort((a, b) => b.pontos - a.pontos);
+
+    if (ranking.length >= 3) {
+
+      document.getElementById('podio').innerHTML = `
+        <div class="podio">
+
+          <div class="segundo">
+            🥈<br>
+            ${ranking[1].nome}<br>
+            ${ranking[1].pontos} pts
+          </div>
+
+          <div class="primeiro">
+            🥇<br>
+            ${ranking[0].nome}<br>
+            ${ranking[0].pontos} pts
+          </div>
+
+          <div class="terceiro">
+            🥉<br>
+            ${ranking[2].nome}<br>
+            ${ranking[2].pontos} pts
+          </div>
+
+        </div>
+      `;
+    }
+
+    let html = '';
+
+    linhas.forEach((linha, i) => {
+
+      if (i === 0) return;
+
+      const colunas = linha.split(';');
+
+      const pontos = parseInt(colunas[1]) || 0;
+
+      if (i > 1 && pontos === 0) return;
+
+      html += '<tr>';
+
+      colunas.forEach(col => {
+
+        if (col.trim() === '') return;
+
+        if (i === 1) {
+          html += `<th>${col}</th>`;
+        } else {
+          html += `<td>${col}</td>`;
+        }
+
+      });
+
+      html += '</tr>';
+
+    });
+
+    document.getElementById('tabela').innerHTML = html;
+
+  });
+</script>
