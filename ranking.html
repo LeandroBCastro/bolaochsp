@@ -5,9 +5,24 @@ fetch('data/ranking.csv')
 
     const linhas = text.trim().split('\n');
 
+    let html = '';
+
+    // Cabeçalho
+    const cabecalho = linhas[1].split(';');
+
+    html += '<tr>';
+
+    cabecalho.forEach(col => {
+      if (col.trim() !== '') {
+        html += `<th>${col}</th>`;
+      }
+    });
+
+    html += '</tr>';
+
     const ranking = [];
 
-    // Monta ranking
+    // Jogadores
     for (let i = 2; i < linhas.length; i++) {
 
       const colunas = linhas[i].split(';');
@@ -16,19 +31,31 @@ fetch('data/ranking.csv')
 
       const pontos = parseInt(colunas[1]) || 0;
 
-      // Ignora quem ainda não pontuou
+      // Ignora quem tem 0 pontos
       if (pontos === 0) continue;
 
       ranking.push({
         nome: colunas[0].trim(),
         pontos: pontos
       });
+
+      html += '<tr>';
+
+      colunas.forEach(col => {
+        if (col.trim() !== '') {
+          html += `<td>${col}</td>`;
+        }
+      });
+
+      html += '</tr>';
     }
 
-    // Ordena por pontuação
+    document.getElementById('tabela').innerHTML = html;
+
+    // Ordena o pódio
     ranking.sort((a, b) => b.pontos - a.pontos);
 
-    // Pódio
+    // Mostra pódio somente se houver pelo menos 3 jogadores
     if (ranking.length >= 3) {
 
       document.getElementById('podio').innerHTML = `
@@ -55,42 +82,6 @@ fetch('data/ranking.csv')
         </div>
       `;
     }
-
-    // Monta tabela
-    let html = '';
-
-    linhas.forEach((linha, i) => {
-
-      if (i === 0) return;
-
-      const colunas = linha.split(';');
-
-      // Oculta jogadores com 0 pontos
-      if (i > 1) {
-        const pontos = parseInt(colunas[1]) || 0;
-        if (pontos === 0) return;
-      }
-
-      html += '<tr>';
-
-      colunas.forEach(col => {
-
-        // Ignora colunas vazias (;;)
-        if (col.trim() === '') return;
-
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
-
-      });
-
-      html += '</tr>';
-
-    });
-
-    document.getElementById('tabela').innerHTML = html;
 
   });
 </script>
