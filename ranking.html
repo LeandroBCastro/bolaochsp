@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Ranking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="ranking.html">Ranking</a>
+  <a href="classificacao.html">Classificação</a>
+  <a href="palpites.html">Palpites</a>
+  <a href="rodada1.html">1ª Rodada</a>
+  <a href="rodada2.html">2ª Rodada</a>
+  <a href="oitavas.html">Oitavas</a>
+  <a href="quartas.html">Quartas</a>
+  <a href="semifinal.html">Semifinal</a>
+  <a href="final.html">Final</a>
+</nav>
+
+<h1>🏆 Ranking</h1>
+
+<div id="podio"></div>
+
+<table id="tabela"></table>
+
 <script>
 fetch('data/ranking.csv')
   .then(response => response.text())
@@ -13,11 +41,14 @@ fetch('data/ranking.csv')
 
       if (colunas.length < 2) continue;
 
+      const nome = colunas[0].trim();
       const pontos = parseInt(colunas[1]) || 0;
 
+      if (nome === '0' || pontos === 0) continue;
+
       ranking.push({
-        nome: colunas[0].trim(),
-        pontos: pontos
+        nome,
+        pontos
       });
     }
 
@@ -52,35 +83,35 @@ fetch('data/ranking.csv')
 
     let html = '';
 
-    linhas.forEach((linha, i) => {
+    html += '<tr>';
+    html += '<th>JOGADOR</th>';
+    html += '<th>PONTUAÇÃO</th>';
+    html += '<th>PLACAR EXATO</th>';
+    html += '<th>VENCEDOR</th>';
+    html += '</tr>';
 
-      if (i === 0) return;
+    ranking.forEach(jogador => {
 
-      const colunas = linha.split(';');
+      const linhaOriginal = linhas.find(l =>
+        l.split(';')[0].trim() === jogador.nome
+      );
 
-      const pontos = parseInt(colunas[1]) || 0;
+      const c = linhaOriginal.split(';');
 
-      if (i > 1 && pontos === 0) return;
-
-      html += '<tr>';
-
-      colunas.forEach(col => {
-
-        if (col.trim() === '') return;
-
-        if (i === 1) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
-
-      });
-
-      html += '</tr>';
-
+      html += `
+        <tr>
+          <td>${c[0]}</td>
+          <td>${c[1]}</td>
+          <td>${c[3]}</td>
+          <td>${c[4]}</td>
+        </tr>
+      `;
     });
 
     document.getElementById('tabela').innerHTML = html;
 
   });
 </script>
+
+</body>
+</html>
