@@ -16,10 +16,10 @@ DATA;HORA;;;;;;;
 15/06;16:00;Bélgica;;1;x;1;;Egito
 15/06;19:00;Arábia Saudita;;1;x;1;;Uruguai
 15/06;22:00;Irã;;2;x;2;;Nova Zelândia
-17/06;01:00;Áustria;;;x;;;Jordânia
+17/06;01:00;Áustria;;3;x;1;;Jordânia
 16/06;16:00;França;;3;x;1;;Senegal
 16/06;19:00;Iraque;;1;x;4;;Noruega
-16/06;22:00;Argentina;;;x;;;Argélia
+16/06;22:00;Argentina;;3;x;0;;Argélia
 17/06;14:00;Portugal;;;x;;;RD Congo
 17/06;17:00;Inglaterra;;;x;;;Croácia
 17/06;20:00;Gana;;;x;;;Panamá
