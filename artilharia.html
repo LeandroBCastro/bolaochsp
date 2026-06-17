@@ -44,26 +44,44 @@ fetch('data/artilharia.csv')
 
     linhas.forEach((linha, i) => {
 
-      const colunas = linha.split(';');
+  const colunas = linha.split(';');
 
-      html += '<tr>';
+  html += '<tr>';
 
-      colunas.forEach(col => {
+  colunas.forEach((col, j) => {
 
-        if (i === 0) {
-          html += `<th>${col}</th>`;
-        } else {
-          html += `<td>${col}</td>`;
-        }
+    if (i === 0) {
 
-      });
+      html += `<th>${col}</th>`;
 
-      html += '</tr>';
-    });
+    } else {
+
+      let valor = col;
+
+      if (j === 1) {
+
+        const bandeiras = {
+          'Brasil':'🇧🇷 Brasil',
+          'França':'🇫🇷 França',
+          'Espanha':'🇪🇸 Espanha',
+          'Argentina':'🇦🇷 Argentina',
+          'Alemanha':'🇩🇪 Alemanha',
+          'Inglaterra':'🏴 Inglaterra'
+        };
+
+        valor = bandeiras[col] || col;
+      }
+
+      html += `<td>${valor}</td>`;
+    }
+  });
+
+  html += '</tr>';
+});
 
     document.getElementById('tabela-artilharia').innerHTML = html;
-  });
-</script>
+      });
+  </script>
 
 </body>
 </html>
