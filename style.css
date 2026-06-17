@@ -458,3 +458,29 @@ tr:hover {
   margin-top: 0;
   color: #1f2937;
 }
+/* ARTILHARIA */
+
+.artilheiro-atual {
+  background: white;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+#tabela-artilharia {
+  margin: auto;
+}
+
+#tabela-artilharia td:nth-child(2) {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+#tabela-artilharia td:nth-child(3) {
+  color: #dc2626;
+  font-weight: bold;
+}
