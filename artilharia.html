@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Artilharia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="ranking.html">Ranking</a>
+  <a href="classificacao.html">Classificação</a>
+  <a href="palpites.html">Palpites</a>
+  <a href="artilharia.html">Artilharia</a>
+  <a href="rodada1.html">1ª Rodada</a>
+  <a href="rodada2.html">2ª Rodada</a>
+  <a href="oitavas.html">Oitavas</a>
+  <a href="quartas.html">Quartas</a>
+  <a href="semifinal.html">Semifinal</a>
+  <a href="final.html">Final</a>
+</nav>
+
+<h1>⚽ Artilharia da Copa</h1>
+
+<div class="artilheiro-atual">
+  🥇 <strong>Lionel Messi (Argentina)</strong>
+  <br>
+  3 gols
+</div>
+
+<h2>🏆 Palpites dos Participantes</h2>
+
+<table id="tabela-artilharia"></table>
+
+<script>
+fetch('data/artilharia.csv')
+  .then(response => response.text())
+  .then(text => {
+
+    const linhas = text.trim().split('\n');
+
+    let html = '';
+
+    linhas.forEach((linha, i) => {
+
+      const colunas = linha.split(';');
+
+      html += '<tr>';
+
+      colunas.forEach(col => {
+
+        if (i === 0) {
+          html += `<th>${col}</th>`;
+        } else {
+          html += `<td>${col}</td>`;
+        }
+
+      });
+
+      html += '</tr>';
+    });
+
+    document.getElementById('tabela-artilharia').innerHTML = html;
+  });
+</script>
+
+</body>
+</html>
