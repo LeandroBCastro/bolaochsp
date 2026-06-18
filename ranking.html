@@ -89,6 +89,8 @@ fetch('data/ranking.csv')
     html += '<th>PONTUAÇÃO</th>';
     html += '<th>PLACAR EXATO</th>';
     html += '<th>VENCEDOR</th>';
+    html += '<th>GOLS M</th>';
+    html += '<th>GOLS V</th>';
     html += '</tr>';
 
     ranking.forEach(jogador => {
@@ -105,6 +107,8 @@ fetch('data/ranking.csv')
           <td>${c[1]}</td>
           <td>${c[3]}</td>
           <td>${c[4]}</td>
+          <td>${c[5]}</td>
+          <td>${c[6]}</td>
         </tr>
       `;
     });
