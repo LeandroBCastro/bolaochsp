@@ -44,16 +44,24 @@ fetch('data/ranking.csv')
 
       const nome = colunas[0].trim();
       const pontos = parseInt(colunas[1]) || 0;
+      const placarExato = parseInt(colunas[3]) || 0;
+const vencedor = parseInt(colunas[4]) || 0;
 
       if (nome === '0' || pontos === 0) continue;
 
       ranking.push({
         nome,
-        pontos
+        pontos,
+        placarExato,
+        vencedor
       });
     }
 
-    ranking.sort((a, b) => b.pontos - a.pontos);
+   ranking.sort((a, b) =>
+  b.pontos - a.pontos ||
+  b.placarExato - a.placarExato ||
+  b.vencedor - a.vencedor
+);
 
     if (ranking.length >= 3) {
 
