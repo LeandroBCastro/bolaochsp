@@ -28,10 +28,10 @@ DATA;HORA;;;;;;;
 18/06;16:00;Suíça;;4;x;1;;Bósnia e Herzegovina
 18/06;19:00;Canadá;;6;x;0;;Catar
 18/06;22:00;México;;1;x;0;;Coreia do Sul
-19/06;00:00;Turquia;;;x;;;Paraguai
-19/06;16:00;Estados Unidos;;;x;;;Austrália
-19/06;19:00;Escócia;;;x;;;Marrocos
-19/06;21:30;Brasil;;;x;;;Haiti
+19/06;00:00;Turquia;;0;x;1;;Paraguai
+19/06;16:00;Estados Unidos;;2;x;0;;Austrália
+19/06;19:00;Escócia;;0;x;1;;Marrocos
+19/06;21:30;Brasil;;3;x;0;;Haiti
 20/06;14:00;Holanda;;;x;;;Suécia
 20/06;17:00;Alemanha;;;x;;;Costa do Marfim
 20/06;21:00;Equador;;;x;;;Curaçau
