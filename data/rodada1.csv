@@ -32,9 +32,9 @@ DATA;HORA;;;;;;;
 19/06;16:00;Estados Unidos;;2;x;0;;Austrália
 19/06;19:00;Escócia;;0;x;1;;Marrocos
 19/06;21:30;Brasil;;3;x;0;;Haiti
-20/06;14:00;Holanda;;;x;;;Suécia
-20/06;17:00;Alemanha;;;x;;;Costa do Marfim
-20/06;21:00;Equador;;;x;;;Curaçau
+20/06;14:00;Holanda;;5;x;1;;Suécia
+20/06;17:00;Alemanha;;2;x;1;;Costa do Marfim
+20/06;21:00;Equador;;0;x;0;;Curaçau
 20/06;23:00;Tunísia;;;x;;;Japão
 21/06;13:00;Espanha;;;x;;;Arábia Saudita
 21/06;16:00;Bélgica;;;x;;;Irã
