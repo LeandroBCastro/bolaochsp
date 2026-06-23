@@ -41,9 +41,9 @@ DATA;HORA;;;;;;;
 21/06;19:00;Uruguai;;2;x;2;;Cabo Verde
 21/06;22:00;Nova Zelândia;;1;x;3;;Egito
 22/06;14:00;Argentina;;2;x;0;;Áustria
-22/06;18:00;França;;;x;;;Iraque
-22/06;21:00;Noruega;;;x;;;Senegal
-22/06;00:00;Jordânia;;;x;;;Argélia
+22/06;18:00;França;;3;x;0;;Iraque
+22/06;21:00;Noruega;;3;x;2;;Senegal
+22/06;00:00;Jordânia;;1;x;2;;Argélia
 23/06;14:00;Portugal;;;x;;;Uzbequistão
 23/06;17:00;Inglaterra;;;x;;;Gana
 23/06;20:00;Panamá;;;x;;;Croácia
