@@ -45,9 +45,9 @@ DATA;HORA;;;;;;;
 22/06;21:00;Noruega;;3;x;2;;Senegal
 22/06;00:00;Jordânia;;1;x;2;;Argélia
 23/06;14:00;Portugal;;5;x;0;;Uzbequistão
-23/06;17:00;Inglaterra;;;x;;;Gana
-23/06;20:00;Panamá;;;x;;;Croácia
-23/06;23:00;Colômbia;;;x;;;RD Congo
+23/06;17:00;Inglaterra;;0;x;0;;Gana
+23/06;20:00;Panamá;;0;x;1;;Croácia
+23/06;23:00;Colômbia;;1;x;0;;RD Congo
 24/06;16:00;Suíça;;;x;;;Canadá
 24/06;16:00;Bósnia e Herzegovina;;;x;;;Catar
 24/06;19:00;Escócia;;;x;;;Brasil
