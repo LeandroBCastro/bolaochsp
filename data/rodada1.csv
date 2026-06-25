@@ -54,8 +54,8 @@ DATA;HORA;;;;;;;
 24/06;19:00;Marrocos;;4;x;2;;Haiti
 24/06;22:00;República Tcheca;;0;x;3;;México
 24/06;22:00;África do Sul;;1;x;0;;Coreia do Sul
-25/06;17:00;Curaçau;;;x;;;Costa do Marfim
-25/06;17:00;Equador;;;x;;;Alemanha
+25/06;17:00;Curaçau;;0;x;2;;Costa do Marfim
+25/06;17:00;Equador;;2;x;1;;Alemanha
 25/06;20:00;Japão;;;x;;;Suécia
 25/06;20:00;Tunísia;;;x;;;Holanda
 25/06;23:00;Turquia;;;x;;;Estados Unidos
