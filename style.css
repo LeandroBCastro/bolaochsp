@@ -156,21 +156,16 @@ tr:hover {
   width: 100%;
   min-width: auto;
 }
+
 .grupo-tabela th,
 .grupo-tabela td {
   padding: 5px 6px;
   font-size: 13px;
-}
-
-.grupo-tabela td:nth-child(2) {
-  min-width: 120px;
-}
-.grupo-tabela th,
-.grupo-tabela td {
   text-align: center;
 }
 
 .grupo-tabela td:nth-child(2) {
+  min-width: 120px;
   text-align: left;
   font-size: 14px;
   color: #111827;
@@ -232,8 +227,6 @@ tr:hover {
 
 /* RODADA */
 
-/* RODADA */
-
 #jogos {
   display: flex;
   flex-wrap: wrap;
@@ -282,6 +275,7 @@ tr:hover {
   font-weight: bold;
   color: #1f2937;
 }
+
 .jogo-hoje {
   border: 3px solid #fbbf24;
   box-shadow: 0 0 18px rgba(251,191,36,.5);
@@ -291,6 +285,7 @@ tr:hover {
   color: #b45309;
   font-weight: bold;
 }
+
 #tabela-palpites {
   width: 100%;
   border-collapse: collapse;
@@ -342,6 +337,10 @@ tr:hover {
   text-align: justify;
 }
 
+.intro-card ul {
+  line-height: 1.8;
+}
+
 .regras-grid {
   display: flex;
   flex-wrap: wrap;
@@ -372,6 +371,9 @@ tr:hover {
   font-weight: bold;
   color: #2563eb;
 }
+
+/* BOTÃO FORMULÁRIO */
+
 .botao-forms {
   display: inline-block;
   background: #2563eb;
@@ -388,9 +390,20 @@ tr:hover {
   transform: scale(1.03);
 }
 
-.intro-card ul {
-  line-height: 1.8;
+/* BOTÃO INATIVO (1ª RODADA ENCERRADA) */
+
+.botao-inativo {
+  background: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+  opacity: .8;
 }
+
+.botao-inativo:hover {
+  background: #9ca3af;
+  transform: none;
+}
+
 /* CHAVEAMENTO */
 
 .chaveamento {
@@ -437,6 +450,7 @@ tr:hover {
   font-size: 20px;
   color: #1f2937;
 }
+
 /* FINAL */
 
 #final-container {
@@ -460,6 +474,7 @@ tr:hover {
   margin-top: 0;
   color: #1f2937;
 }
+
 /* ARTILHARIA */
 
 .artilheiro-atual {
