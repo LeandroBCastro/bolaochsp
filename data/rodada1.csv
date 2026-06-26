@@ -58,8 +58,8 @@ DATA;HORA;;;;;;;
 25/06;17:00;Equador;;2;x;1;;Alemanha
 25/06;20:00;Japão;;1;x;1;;Suécia
 25/06;20:00;Tunísia;;1;x;3;;Holanda
-25/06;23:00;Turquia;;;x;;;Estados Unidos
-25/06;23:00;Paraguai;;;x;;;Austrália
+25/06;23:00;Turquia;;3;x;2;;Estados Unidos
+25/06;23:00;Paraguai;;0;x;0;;Austrália
 26/06;16:00;Noruega;;;x;;;França
 26/06;16:00;Senegal;;;x;;;Iraque
 26/06;21:00;Cabo Verde;;;x;;;Arábia Saudita
