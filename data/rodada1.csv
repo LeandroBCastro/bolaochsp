@@ -60,12 +60,12 @@ DATA;HORA;;;;;;;
 25/06;20:00;Tunísia;;1;x;3;;Holanda
 25/06;23:00;Turquia;;3;x;2;;Estados Unidos
 25/06;23:00;Paraguai;;0;x;0;;Austrália
-26/06;16:00;Noruega;;;x;;;França
-26/06;16:00;Senegal;;;x;;;Iraque
-26/06;21:00;Cabo Verde;;;x;;;Arábia Saudita
-26/06;21:00;Uruguai;;;x;;;Espanha
-27/06;00:00;Egito;;;x;;;Irã
-27/06;00:00;Nova Zelândia;;;x;;;Bélgica
+26/06;16:00;Noruega;;1;x;4;;França
+26/06;16:00;Senegal;;5;x;0;;Iraque
+26/06;21:00;Cabo Verde;;0;x;0;;Arábia Saudita
+26/06;21:00;Uruguai;;0;x;1;;Espanha
+26/06;00:00;Egito;;;x;;;Irã
+26/06;00:00;Nova Zelândia;;;x;;;Bélgica
 27/06;18:00;Panamá;;;x;;;Inglaterra
 27/06;18:00;Croácia;;;x;;;Gana
 27/06;20:30;Colômbia;;;x;;;Portugal
