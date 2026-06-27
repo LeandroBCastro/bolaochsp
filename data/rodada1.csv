@@ -64,8 +64,8 @@ DATA;HORA;;;;;;;
 26/06;16:00;Senegal;;5;x;0;;Iraque
 26/06;21:00;Cabo Verde;;0;x;0;;Arábia Saudita
 26/06;21:00;Uruguai;;0;x;1;;Espanha
-26/06;00:00;Egito;;;x;;;Irã
-26/06;00:00;Nova Zelândia;;;x;;;Bélgica
+26/06;00:00;Egito;;1;x;1;;Irã
+26/06;00:00;Nova Zelândia;;1;x;5;;Bélgica
 27/06;18:00;Panamá;;;x;;;Inglaterra
 27/06;18:00;Croácia;;;x;;;Gana
 27/06;20:30;Colômbia;;;x;;;Portugal
