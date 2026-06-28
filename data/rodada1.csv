@@ -66,12 +66,12 @@ DATA;HORA;;;;;;;
 26/06;21:00;Uruguai;;0;x;1;;Espanha
 26/06;00:00;Egito;;1;x;1;;Irã
 26/06;00:00;Nova Zelândia;;1;x;5;;Bélgica
-27/06;18:00;Panamá;;;x;;;Inglaterra
-27/06;18:00;Croácia;;;x;;;Gana
-27/06;20:30;Colômbia;;;x;;;Portugal
-27/06;20:30;RD Congo;;;x;;;Uzbequistão
-27/06;23:00;Argélia;;;x;;;Áustria
-27/06;23:00;Jordânia;;;x;;;Argentina
+27/06;18:00;Panamá;;0;x;2;;Inglaterra
+27/06;18:00;Croácia;;2;x;1;;Gana
+27/06;20:30;Colômbia;;0;x;0;;Portugal
+27/06;20:30;RD Congo;;3;x;1;;Uzbequistão
+27/06;23:00;Argélia;;3;x;3;;Áustria
+27/06;23:00;Jordânia;;1;x;3;;Argentina
 ;;;;;;;;
 ;;;;;;;;
 ;;;;;;;;
