@@ -43,7 +43,7 @@ fetch('data/ranking.csv')
       if (colunas.length < 2) continue;
 
       const nome = colunas[0].trim();
-      const pontos = parseInt(colunas[1]) || 0;
+      const pontos = parseFloat(colunas[1].replace(',', '.')) || 0;
       const placarExato = parseInt(colunas[3]) || 0;
 const vencedor = parseInt(colunas[4]) || 0;
 
