@@ -13,9 +13,9 @@ DATA;HORA;;;;;;;
 02/07;16:00;Espanha;;3;x;0;;Áustria
 02/07;20:00;Portugal;;2;x;1;;Croácia
 03/07;00:00;Suíça;;2;x;0;;Argélia
-03/07;15:00;Austrália;;;x;;;Egito
-03/07;19:00;Argentina;;;x;;;Cabo Verde
-03/07;22:30;Colômbia;;;x;;;Gana
+03/07;15:00;Austrália;;1;x;1;;Egito
+03/07;19:00;Argentina;;3;x;2;;Cabo Verde
+03/07;22:30;Colômbia;;1;x;0;;Gana
 ;;;;;;;;
 ;;;;;;;;
 ;;;;;;;;
